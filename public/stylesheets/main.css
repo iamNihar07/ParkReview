@@ -1,0 +1,82 @@
+.delete-form{
+    display: inline;
+}
+
+body{ 
+    padding-top: 70px; 
+}
+
+/* .gallery img{
+    height: 200px;
+    width: 100%;
+} */
+
+.index_pg img{
+    height: 200px;
+    width: auto;
+}
+
+.icon-start{
+    height: 1em;
+    width: auto;
+}
+
+/* Google Maps */
+#map{
+    height: 400px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.list-group{
+    font-size: 1.25em;
+}
+
+.header-msg{
+    font-weight: 500;
+}
+
+.navbar_bg{
+    background-color: #000;
+    color: #fff;
+}
+
+.active {
+    background-color: #007bff;
+}
+
+.nav-item {
+    padding: 6px 12px;
+    text-align: center;
+    border-radius: 2px;
+    border-left: solid #333 0.009px;
+    border-right: solid #333 0.009px;
+}
+
+.nav-item:hover {
+    background-color: #007bff;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.90);
+}
+/* .row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.thumbnail_equal{
+    height: 100%;
+} */
+
+/* .navbar{
+    z-index: 1;
+    position: relative;
+    webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    color: #ffffff;
+} */
+

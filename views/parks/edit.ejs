@@ -1,0 +1,60 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center mb-3">
+            <h1>Edit <%= park.name %></h1>
+        </div>
+        <div class="col-xs-12 col-md-8 col-lg-6">
+            <form action="/parks/<%= park._id %>?_method=PUT" method="POST">
+                <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">Park Name:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" value="<%= park.name %>" name="park[name]" id="name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="price" class="col-sm-3 col-form-label">Cost/person:</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input class="form-control" type="number" value="<%= park.price %>" name="park[price]" min="2.50" step="0.01" id="price">
+                        </div>
+                    </div> 
+                </div>
+                <div class="form-group row">
+                    <label for="url" class="col-sm-3 col-form-label">Image URL:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" value="<%= park.image %>" name="park[image]" id="url">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="descp" class="col-sm-3 col-form-label">Description:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" value="<%= park.description %>" name="park[description]" id="descp">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="location" class="col-sm-3 col-form-label">Location:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" name="location" id="location" value="<%= park.location %>" id="location">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>                
+            </form>
+
+            <a href="/parks">Go Back</a>
+        </div>
+
+        
+
+    </div>  
+
+</div>
+
+<%- include ("../partials/footer") %>

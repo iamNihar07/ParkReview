@@ -1,0 +1,53 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+
+    <div class="jumbotron py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4 header-msg"><img class="icon-start" src="/icons/favicon.png"> Welcome to ParkReview!</h1>
+                <!-- <p class="lead">View our hand picked parks from all over the world</p> -->
+                <hr class="my-4">
+                <p class="lead">View our hand picked amusement parks from all over the world</p>
+                <a class="btn btn-primary btn-lg" href="/parks/new">Add new Park</a>
+                <p>
+                    <form action="/parks" method="GET" class="form-inline justify-content-center">
+                        <div class="input-group">
+                            <input type="text"name="search" class="form-control" placeholder="Search for a park...">
+                            <span class="input-group-append">
+                            <button class="btn btn-success" type="submit">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Our Most Popular Parks</h3>
+            <hr class="mb-4">
+        </div>
+    </div>
+    
+    
+    <div class="row text-center display-flex">
+        <% parks.forEach(function(park){ %>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card index_pg">
+                    <img src="<%= park.image %>" class="card-img-top" alt="<%= park.name%>">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= park.name%></h5>
+                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                      <a href="/parks/<%= park._id%>" class="btn btn-primary">More Info  <i class="fa fa-info-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<%- include ("../partials/footer") %>

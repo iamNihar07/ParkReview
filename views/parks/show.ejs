@@ -1,0 +1,106 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group mb-3">
+                <form action="/parks" method="GET">
+                  <button class="list-group-item active btn-block btn-primary"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>      Back</button>
+                </form>
+            </div>
+            <div id="map"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="card mb-3">
+                <img src="<%=park.image%>" class="card-img-top" alt="<%= park.name%>">
+                <div class="card-body">
+                    <h5 class="float-right">$<%= park.price %>/person</h5>
+                    <h3 class="card-title"><a href="#"><%= park.name%></a></h3>
+                    <p>
+                        <em>Last Updated by: <%= park.author.username %>, <%= moment(park.createdAt).fromNow() %></em>
+                    </p>
+                    <hr>
+                    <p class="card-text">
+                      <%=park.description%>
+                    </p>
+                    <% if(currentUser && park.author.id.equals(currentUser._id)){ //check if currentUser exists and if he owns the park%>
+                        <a class="btn btn-warning" href="/parks/<%= park._id %>/edit">Edit</a>
+                        <form class="delete-form" action="/parks/<%= park._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                        <% } %>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                  <div class="text-right">
+                    <a class="btn btn-success" href="/parks/<%= park._id %>/comments/new">Add New Comment</a>
+                  </div>
+                  <hr>
+                  <div class="row">
+                  <% park.comments.forEach(function(comment){ %>
+                    <div class="col-md-12 mb-2">
+                      <div class="card bg-light">
+                        <div class="card-body">
+                          <div class="float-left">
+                            <p class="card-title"><strong><%= comment.author.username %></strong></p>
+                            <p class="card-text"><%= comment.text %></p>
+                          </div>
+                          <div class="float-right">
+                            <p><%= moment(comment.createdAt).fromNow() %></p>
+                            
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                            <div class="float-right">
+                              <a href="/parks/<%=park._id%>/comments/<%=comment._id%>/edit" class="btn btn-sm btn-warning">EDIT</a>
+                              <form class="delete-form" action="/parks/<%=park._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-sm btn-danger">DELETE</button>
+                              </form>
+                            </div>
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% }) %>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.initMap = function(){
+      var lat = <%= park.lat %>;
+      var lng = <%= park.lng %>;
+      var lng = <%= park.lng %>;
+      var center = {lat: lat, lng: lng };
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: center,
+          scrollwheel: false
+      });
+      var contentString = `
+      <strong><%= park.name %><br />
+      <%= park.location %></strong>
+      <p><%= park.description %></p>
+    `
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      var marker = new google.maps.Marker({
+          position: center,
+          map: map
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvuxOOknQSCX9i2_fB8a-dF568isvcv4E&callback=initMap"></script>
+
+  
+
+<%- include ("../partials/footer") %>
+

@@ -1,0 +1,60 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center mb-3">
+            <h1>Create new park</h1>
+        </div>
+        <div class="col-xs-12 col-md-8 col-lg-6">
+            <form action="/parks" method="POST">
+                <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">Park Name:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" placeholder="name" name="name" id="name">
+                    </div>                    
+                </div>
+                <div class="form-group row">
+                    <label for="price" class="col-sm-3 col-form-label">Cost/person:</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input class="form-control" type="number" placeholder="price" name="price" min="2.50" step="0.01" id="price">
+                        </div>
+                    </div>                      
+                </div>
+                <div class="form-group row">
+                    <label for="url" class="col-sm-3 col-form-label">Image URL:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" placeholder="https://picsum.photos/200/300" name="image" id="url">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="descp" class="col-sm-3 col-form-label">Description:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" placeholder="detailed description of park" name="description" id="descp">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="location" class="col-sm-3 col-form-label">Location:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" name="location" id="location" placeholder="Disney World, Orlando, FL">
+                    </div>                    
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>                
+            </form>
+
+            <a href="/parks">Go Back</a>
+        </div>
+
+        
+
+    </div>  
+
+</div>
+
+<%- include ("../partials/footer") %>
