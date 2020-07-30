@@ -1,7 +1,7 @@
 # [Park-Review](https://parkreview-nihar.herokuapp.com/ "Visit the web app") (MEN Stack) 
 #### A full stack Node.js web application for reviewing amusement parks, based on the concept of Yelp.com with RESTful Routing, MongoDB, ExpressJS and CRUD functionality
-
-### Features
+---
+## Features
 - Authentication
   - New User Sign up with username and password
   - User login and logout
@@ -24,8 +24,8 @@
 - Fuzzy Search
   - Displays the parks that matches the search 
   
-  
-  ### Built with
+  ---
+  ## Built with
   * Front-end
     * HTML5
     * CSS3
