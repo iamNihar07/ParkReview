@@ -1,4 +1,4 @@
-# [Park-Review](https://parkreview-nihar.herokuapp.com/ "Named link title") (MEN Stack) 
+# [Park-Review](https://parkreview-nihar.herokuapp.com/ "Visit the web app") (MEN Stack) 
 #### A full stack Node.js web application for reviewing amusement parks, based on the concept of Yelp.com with RESTful Routing, MongoDB, ExpressJS and CRUD functionality
 
 ### Features
@@ -23,5 +23,30 @@
   - Uses MomentJS to display timestamps for parks and comments "x minutes ago" or "y days ago"
 - Fuzzy Search
   - Displays the parks that matches the search 
+  
+  
+  ### Built with
+  * Front-end
+    * HTML5
+    * CSS3
+    * Bootstrap v4.5
+    * FontAwesome 4.7
+  * Back-end
+    * NodeJS
+    * Express
+    * EJS
+    * MongoDB
+    * Mongoose
+    * PassportJS
+    * MomentJS
+    * connect-flash
+    * body-parser
+    * method-override
+    * node-geocoder
+    * Google Maps API
+  * Deployment
+    * Heroku
+ 
+   
 
 
